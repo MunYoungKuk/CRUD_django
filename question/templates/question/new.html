@@ -1,0 +1,12 @@
+{%extends "question/base.html"%}
+
+{%block bb%}
+    <form action = "/question/create/" method = "post">
+        {% csrf_token %}
+        <input type = "text" name = "title"/>
+        <input content = "text" name = "content"/>
+        <input type ="submit"/>
+    </form>
+    
+    
+{%endblock%}

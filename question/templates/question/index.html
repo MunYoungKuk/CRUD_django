@@ -1,0 +1,9 @@
+{% extends "question/base.html" %}
+
+{% block bb %}
+    {% for question in questions %}
+        <h3>{{question.title}}</h3>
+        <p>{{question.created_at}}</p>
+        <a href = "/question/{{question.id}}">글 보기</a>
+    {% endfor %}
+{% endblock %}

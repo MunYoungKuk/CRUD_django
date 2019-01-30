@@ -1,0 +1,18 @@
+{% extends "question/base.html" %}
+{% block bb %}
+    <h1>{{question.title}}</h1>
+    <h1>{{question.content}}</h1>
+    <h1>{{question.created_at}}</h1>
+    <a href="/question/{{question.id}}/delete">삭제</a>
+    <a href="/question/{{question.id}}/edit">수정</a>
+
+    <hr>
+    <form action = "/question/{{question.id}}/comment/create" method="post">
+        {%csrf_token%}
+        <input type="text" name="content"/>
+        <input type="submit" value="Submit"/>
+            {% for comment in question.comment_set.all %}
+                <h4>{{comment.content}}</h4>
+            {% endfor %}
+    </form>
+{% endblock %}
